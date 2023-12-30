@@ -56,7 +56,8 @@ const OpeningsList = () => {
                     return (
                         <Opening
                             title={item.title}
-                            description={item.description} />
+                            description={item.description} 
+                            key={i}/>
                     )
                 })}
             </div>
