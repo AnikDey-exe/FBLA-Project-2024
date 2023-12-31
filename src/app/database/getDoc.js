@@ -10,7 +10,7 @@ export default async function getDocument(collection, id) {
     let error = null;
 
     try {
-        result = await getDoc(docRef);
+        result = (await getDoc(docRef)).data();
     } catch (e) {
         error = e;
     }

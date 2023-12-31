@@ -10,7 +10,7 @@ import {
     faMagnifyingGlass,
     faBars
 } from "@fortawesome/free-solid-svg-icons";
-import { PRIMARY_COLOR } from "../constants";
+import { COMPANY_NAME, PRIMARY_COLOR } from "../constants";
 
 const Navbar = () => {
     const isMobile = useMediaQuery("(max-width: 700px)");
@@ -28,7 +28,9 @@ const Navbar = () => {
                 paddingRight: 30,
                 alignItems: "center"
             }}>
-                <h3 style={{ color: PRIMARY_COLOR, fontWeight: 'bold' }}>Hungry</h3>
+                <Link href="/">
+                    <h3 style={{ color: PRIMARY_COLOR, fontWeight: 'bold' }}>{COMPANY_NAME}</h3>
+                </Link>
                 {!isMobile &&
                     <ul style={{ color: PRIMARY_COLOR, display: "flex", flexDirection: "row", alignItems: "center" }}>
                         <li>
@@ -36,10 +38,10 @@ const Navbar = () => {
                                 <p>Openings</p>
                             </Link>
                         </li>
-                        <li style={{marginLeft: 20}}>
-                            <Link href="/about">
-                                <Button style={{backgroundColor: PRIMARY_COLOR, height: 30, borderRadius: 10, display: "flex", alignItems: "center" }}>
-                                    <span style={{color: 'white', fontWeight: 600}}>Apply</span>
+                        <li style={{ marginLeft: 20 }}>
+                            <Link href="/signup">
+                                <Button style={{ backgroundColor: PRIMARY_COLOR, height: 30, borderRadius: 10, display: "flex", alignItems: "center" }}>
+                                    <span style={{ color: 'white', fontWeight: 600 }}>Sign Up</span>
                                 </Button>
                             </Link>
                         </li>

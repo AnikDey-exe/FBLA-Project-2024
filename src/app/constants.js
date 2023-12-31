@@ -22,4 +22,5 @@ export const benefits = [
     Documentation: 
     https://unsplash.com/photos/person-holding-black-android-smartphone-ET29IV1yQiE
     https://unsplash.com/photos/variety-of-sliced-fruits-08bOYnH_r_E 
+    https://unsplash.com/photos/black-calculator-beside-black-pen-on-white-printer-paper-I3HPUolh5hA
 */

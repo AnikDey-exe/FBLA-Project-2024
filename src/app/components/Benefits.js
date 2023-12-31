@@ -57,14 +57,27 @@ const Benefits = () => {
                     )
                 })}
             </div>
-            <Button
-                style={{
-                    marginTop: 20
-                }}>
-                <Link href="/openings">
-                    <span style={{ color: PRIMARY_COLOR, fontWeight: 700 }}>Join Now</span>
-                </Link>
-            </Button>
+            <div style={{
+                display:"flex",
+                flexDirection: "row"
+            }}>
+                <Button
+                    style={{
+                        marginTop: 20
+                    }}>
+                    <Link href="/openings">
+                        <span style={{ color: PRIMARY_COLOR, fontWeight: 700 }}>Learn More</span>
+                    </Link>
+                </Button>
+                <Button
+                    style={{
+                        marginTop: 20
+                    }}>
+                    <Link href="/openings">
+                        <span style={{ color: PRIMARY_COLOR, fontWeight: 700 }}>Join Now</span>
+                    </Link>
+                </Button>
+            </div>
         </motion.div>
     )
 }
