@@ -1,11 +1,16 @@
 "use client";
 
+import { useContext } from "react";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { COMPANY_NAME, PRIMARY_COLOR } from "../constants";
+import Link from "next/link";
 import Button from "./Button";
+import { User } from "../contexts/UserContext";
 
 const Position = ({ details }) => {
     const isMobile = useMediaQuery("(max-width: 700px)");
+
+    const { currentUser, setCurrentUser } = useContext(User);
 
     return (
         <div style={{ padding: 50 }}>
@@ -14,16 +19,36 @@ const Position = ({ details }) => {
             <h3>{details.location}</h3>
             <h3>${details.lowerPrice} - ${details.higherPrice} per year - {details.jobType}</h3>
 
-            <Button style={{ 
-                backgroundColor: PRIMARY_COLOR, 
-                height: 30, 
-                borderRadius: 10, 
-                display: "flex", 
-                alignItems: "center",
-                marginTop: 15
-            }}>
-                <span style={{ color: 'white', fontWeight: 600 }}>Apply Now</span>
-            </Button>
+            {currentUser != "" ?
+                <Link href={{
+                    pathname: "apply",
+                    query: { 
+                        position: details.id
+                    }
+                }}>
+                    <Button style={{
+                        backgroundColor: PRIMARY_COLOR,
+                        height: 30,
+                        borderRadius: 10,
+                        display: "flex",
+                        alignItems: "center",
+                        marginTop: 15
+                    }}>
+                        <span style={{ color: 'white', fontWeight: 600 }}>Apply Now</span>
+                    </Button>
+                </Link> :
+                <Link href="/signup">
+                    <Button style={{
+                        backgroundColor: PRIMARY_COLOR,
+                        height: 30,
+                        borderRadius: 10,
+                        display: "flex",
+                        alignItems: "center",
+                        marginTop: 15
+                    }}>
+                        <span style={{ color: 'white', fontWeight: 600 }}>Apply Now</span>
+                    </Button>
+                </Link>}
 
             <h2 style={{ marginTop: 30, fontSize: isMobile ? 35 : 40 }}> Position Details </h2>
             <h3 style={{ fontWeight: 700 }}>Job Description</h3>

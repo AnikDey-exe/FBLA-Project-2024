@@ -1,20 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Link from "next/link";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import Button from "./Button";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faMagnifyingGlass,
     faBars
 } from "@fortawesome/free-solid-svg-icons";
 import { COMPANY_NAME, PRIMARY_COLOR } from "../constants";
+import { User } from "../contexts/UserContext";
 
 const Navbar = () => {
     const isMobile = useMediaQuery("(max-width: 700px)");
     const [isVisible, setIsVisible] = useState(false);
+
+    const { currentUser, setCurrentUser } = useContext(User);
+
     return (
         <>
             <div style={{
@@ -39,11 +42,16 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li style={{ marginLeft: 20 }}>
-                            <Link href="/signup">
-                                <Button style={{ backgroundColor: PRIMARY_COLOR, height: 30, borderRadius: 10, display: "flex", alignItems: "center" }}>
-                                    <span style={{ color: 'white', fontWeight: 600 }}>Sign Up</span>
-                                </Button>
-                            </Link>
+                            {currentUser == "" ?
+                                <Link href="/signup">
+                                    <Button style={{ backgroundColor: PRIMARY_COLOR, height: 30, borderRadius: 10, display: "flex", alignItems: "center" }}>
+                                        <span style={{ color: 'white', fontWeight: 600 }}>Sign Up</span>
+                                    </Button>
+                                </Link> :
+                                <Link href="/openings">
+                                    <p>My Account</p>
+                                </Link>
+                            }
                         </li>
                     </ul>
                 }

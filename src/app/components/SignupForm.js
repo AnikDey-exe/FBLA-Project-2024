@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Input from "./Input";
 import { PRIMARY_COLOR } from "../constants";
 import Button from "./Button";
@@ -8,6 +8,8 @@ import Link from "next/link";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import signUp from "../database/auth/signUp";
 import addData from "../database/addData";
+import { User } from "../contexts/UserContext";
+import Warning from "./Warning";
 
 const SignupForm = () => {
     const isMobile = useMediaQuery("(max-width: 900px)");
@@ -16,6 +18,8 @@ const SignupForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userCode, setUserCode] = useState('')
+
+    const { currentUser, setCurrentUser } = useContext(User);
 
     const [signupState, setSignupState] = useState('registering');
     const [alert, setAlert] = useState(null);
@@ -82,6 +86,8 @@ const SignupForm = () => {
             setSignupState('registering')
         }
     }
+
+    if(currentUser != "") return <Warning message="You are already logged in, please log out to access this page."/>
 
     return (
         <div style={{
@@ -162,7 +168,7 @@ const SignupForm = () => {
                 </form>
             </div>
             {alert && <h5 style={{ marginTop: 20, color: 'red' }}>{alert}</h5>}
-            <Link href="/" style={{ marginTop: 20 }}>
+            <Link href="/signin" style={{ marginTop: 20 }}>
                 <span style={{ color: PRIMARY_COLOR }}> Already have an account? Sign in </span>
             </Link>
         </div>

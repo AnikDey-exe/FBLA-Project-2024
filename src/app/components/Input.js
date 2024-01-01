@@ -1,4 +1,4 @@
-const Input = ({type, name, value, onChange, placeholder, disabled, style={}}) => {
+const Input = ({type, name, value, onChange, placeholder, disabled, pattern, style={}}) => {
     return (
         <input 
             placeholder={placeholder}
@@ -7,6 +7,7 @@ const Input = ({type, name, value, onChange, placeholder, disabled, style={}}) =
             value={value}
             disabled={disabled}
             onChange={onChange}
+            pattern={pattern}
             style={{
                 borderRadius: 10,
                 padding: 10,

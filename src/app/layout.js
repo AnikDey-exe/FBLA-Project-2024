@@ -3,6 +3,8 @@ import './globals.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
+import UserContext from './contexts/UserContext'
+
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
@@ -22,9 +24,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Navbar />
-        {children}
-        <Footer/>
+        <UserContext>
+          <Navbar />
+          {children}
+          <Footer />
+        </UserContext>
       </body>
     </html>
   )

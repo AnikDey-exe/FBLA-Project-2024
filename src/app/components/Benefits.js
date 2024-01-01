@@ -11,7 +11,6 @@ import Link from "next/link";
 
 const Benefits = () => {
     const isMobile = useMediaQuery("(max-width: 700px)");
-    const db = getFirestore(firebase_app)
 
     return (
         <motion.div

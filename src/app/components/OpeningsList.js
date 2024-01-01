@@ -89,7 +89,9 @@ const Opening = ({ title, description, lowerPrice, higherPrice, location, isMobi
             <Link
                 href={{
                     pathname: 'details',
-                    query: { position: id }
+                    query: { 
+                        position: id 
+                    }
                 }}>
                 <h5 style={{ fontWeight: 500, color: PRIMARY_COLOR }}>Learn more <FontAwesomeIcon icon={faChevronRight} style={{ marginTop: 10 }} /></h5>
             </Link>
