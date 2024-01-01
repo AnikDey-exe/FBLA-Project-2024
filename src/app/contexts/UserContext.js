@@ -8,7 +8,7 @@ export default function UserContext({ children }) {
     const [currentUser, setCurrentUser] = useState('');
 
     useEffect(()=>{
-        setCurrentUser(localStorage.getItem("currentUserEmail") || "conf")
+        setCurrentUser(localStorage.getItem("currentUserEmail") || "")
     }, [])
 
     return (
