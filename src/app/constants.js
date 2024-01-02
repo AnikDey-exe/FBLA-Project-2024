@@ -1,5 +1,5 @@
 export const COMPANY_NAME = "ExpressEats"
-export const PRIMARY_COLOR = "#00BD9D"
+export const PRIMARY_COLOR = "#00bd9d"
 export const benefits = [
     {
         title: 'Unlimited PTO',
@@ -23,4 +23,8 @@ export const benefits = [
     https://unsplash.com/photos/person-holding-black-android-smartphone-ET29IV1yQiE
     https://unsplash.com/photos/variety-of-sliced-fruits-08bOYnH_r_E 
     https://unsplash.com/photos/black-calculator-beside-black-pen-on-white-printer-paper-I3HPUolh5hA
+
+    FlatIcons:
+    Sonnycandra
+    Chattapat
 */

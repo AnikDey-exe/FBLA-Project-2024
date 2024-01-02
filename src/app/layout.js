@@ -1,7 +1,14 @@
-import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import ImportBS from './importBS';
+
+import { Inter, Poppins } from 'next/font/google'
+
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+
+import Head from 'next/head'
 
 import UserContext from './contexts/UserContext'
 
@@ -23,8 +30,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      {/* <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+        />
+      </Head> */}
       <body className={poppins.className}>
         <UserContext>
+          <ImportBS/>
           <Navbar />
           {children}
           <Footer />

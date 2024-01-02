@@ -85,6 +85,7 @@ const ApplicationForm = ({ details }) => {
         const { result4, error4 } = await addData("Applications", resumeId, {
             id: resumeId,
             positionId: details.id,
+            positionTitle: details.title,
             applicantEmail: currentUser,
             applicantFullName: name === "" ? accountName : name,
             applicantPhoneNumber: phoneNumber,
@@ -99,7 +100,7 @@ const ApplicationForm = ({ details }) => {
             return;
         }
 
-        setAlert(`Succesfully applied for the ${details.title} position!`)
+        setAlert(`Succesfully applied for the ${details.title} position! Check your email for updates on your application.`)
         setName('');
         setPhoneNumber('');
         setAddress('');

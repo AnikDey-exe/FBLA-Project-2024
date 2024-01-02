@@ -69,7 +69,7 @@ const SignupForm = () => {
             const { result2, error2 } = await addData("Users", email, {
                 email: email,
                 name: name,
-                profilePicture: ''
+                profilePicture: 'https://firebasestorage.googleapis.com/v0/b/fblaproject-e450d.appspot.com/o/profilePictures%2Fprofile.png?alt=media&token=5d79b779-57b9-4854-bb2b-b0ec8f4f8952'
             })
 
             if (error2) {
