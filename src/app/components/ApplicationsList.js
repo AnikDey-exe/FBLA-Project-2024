@@ -4,12 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { PRIMARY_COLOR } from "../constants";
 import Button from "./Button";
-import { Button as ModalButton, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
 import deleteDocument from "../database/deleteDoc";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 const ApplicationsList = ({ applications }) => {
+    const isMobile = useMediaQuery("(max-width: 850px)");
+
     const [modal, setModal] = useState(false);
     const [message, setMessage] = useState("Are you sure you want to delete this application? This action cannot be undone.");
     const [applicationToDeleteId, setApplicationToDeleteId] = useState('');
@@ -20,7 +23,8 @@ const ApplicationsList = ({ applications }) => {
 
     return (
         <div style={{
-            width: "67.5%"
+            width: isMobile ? "100%" : "67.5%",
+            marginTop: isMobile ? 30 : 0
         }}>
             <div style={{
                 display: "flex",
@@ -28,7 +32,7 @@ const ApplicationsList = ({ applications }) => {
                 justifyContent: "space-between"
             }}>
                 <h4 style={{ fontWeight: 500 }}>Submitted Applications</h4>
-                <Link href="/apply">
+                <Link href="/choose">
                     <Button style={{ backgroundColor: PRIMARY_COLOR, height: 30, borderRadius: 10, display: "flex", alignItems: "center" }}>
                         <span style={{ color: 'white', fontWeight: 600 }}>Apply</span>
                         <FontAwesomeIcon color="white" style={{marginLeft: 5}} icon={faPlus} />
@@ -36,7 +40,7 @@ const ApplicationsList = ({ applications }) => {
                 </Link>
             </div>
             <div style={{
-                display: 'grid',
+                display: isMobile ? "flex" : 'grid',
                 flexDirection: 'column',
                 gridTemplateColumns: 'repeat(3, 1fr)',
                 gridAutoRows: '1fr',

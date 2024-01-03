@@ -5,6 +5,7 @@ import Image from "next/image";
 import Button from "./Button";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { PRIMARY_COLOR } from "../constants";
+import Link from "next/link";
 
 const HeroBanner = ({ title, backgroundImage, hasButton }) => {
     const isMobile = useMediaQuery("(max-width: 940px)");
@@ -51,16 +52,18 @@ const HeroBanner = ({ title, backgroundImage, hasButton }) => {
                     transition={{ type: "spring", ease: "easeOut", duration: 1, stiffness: 50 }}>
                     <h1 style={{ textAlign: "center" }}>{title}</h1>
                     {hasButton &&
-                        <Button style={{
-                            backgroundColor: PRIMARY_COLOR,
-                            height: 30,
-                            borderRadius: 30,
-                            display: "flex",
-                            alignItems: "center",
-                            marginTop: 20
-                        }}>
-                            <span style={{ color: 'white', fontWeight: 600 }}>Apply Now</span>
-                        </Button>
+                        <Link href="/choose">
+                            <Button style={{
+                                backgroundColor: PRIMARY_COLOR,
+                                height: 30,
+                                borderRadius: 30,
+                                display: "flex",
+                                alignItems: "center",
+                                marginTop: 20
+                            }}>
+                                <span style={{ color: 'white', fontWeight: 600 }}>Apply Now</span>
+                            </Button>
+                        </Link>
                     }
                 </motion.div>
                 {/* <motion.h1 animate={{

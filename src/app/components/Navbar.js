@@ -44,13 +44,18 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li style={{ marginLeft: 20 }}>
+                            <Link href="/benefits">
+                                <p>Benefits</p>
+                            </Link>
+                        </li>
+                        <li style={{ marginLeft: 20 }}>
                             {currentUser == "" ?
                                 <Link href="/signup">
                                     <Button style={{ backgroundColor: PRIMARY_COLOR, height: 30, borderRadius: 10, display: "flex", alignItems: "center" }}>
                                         <span style={{ color: 'white', fontWeight: 600 }}>Sign Up</span>
                                     </Button>
                                 </Link> :
-                                <Button style={{padding: 0, width: 100}} onPress={()=>{
+                                <Button style={{padding: 0, width: 'fit-content'}} onPress={()=>{
                                     setAccountClicked(!accountClicked)
                                 }}>
                                     <AccountDrawer isVisible={accountClicked}/>
@@ -106,14 +111,14 @@ const AccountDrawer = ({ isVisible }) => {
             }}
             initial={{
                 backgroundColor: "white",
-                width: 100,
+                width: 110,
                 height: "fit-content",
                 position: "fixed",
                 display: "flex",
                 flexDirection: "column",
                 position: "absolute",
                 top: 55,
-                // right: 0,
+                right: 22.5,
                 zIndex: 5,
                 padding: 5
             }}>

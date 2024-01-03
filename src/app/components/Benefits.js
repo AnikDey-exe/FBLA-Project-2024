@@ -64,7 +64,7 @@ const Benefits = () => {
                     style={{
                         marginTop: 20
                     }}>
-                    <Link href="/openings">
+                    <Link href="/benefits">
                         <span style={{ color: PRIMARY_COLOR, fontWeight: 700 }}>Learn More</span>
                     </Link>
                 </Button>

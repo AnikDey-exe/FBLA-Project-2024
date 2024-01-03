@@ -6,9 +6,10 @@ import { PRIMARY_COLOR } from "../constants";
 import Input from "./Input";
 import addData from "../database/addData";
 import { createId } from "../utils";
+import Link from "next/link";
 
 const Footer = () => {
-    const isMobile = useMediaQuery("(max-width: 940px)");
+    const isMobile = useMediaQuery("(max-width: 900px)");
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -31,9 +32,9 @@ const Footer = () => {
 
     return (
         <footer style={{
-            width: "100%", 
-            height: 'fit-content', 
-            backgroundColor: PRIMARY_COLOR, 
+            width: "100%",
+            height: 'fit-content',
+            backgroundColor: PRIMARY_COLOR,
             padding: 50,
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
@@ -51,11 +52,11 @@ const Footer = () => {
                 }}>
                     <Input type="text" name="Name" value={name} onChange={(e) => { setName(e.target.value) }} placeholder="Name"
                         style={{
-                            width: "40%"
+                            width: isMobile ? "70%" : "40%"
                         }} />
                     <Input type="text" name="Email" value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"
                         style={{
-                            width: "40%",
+                            width: isMobile ? "70%" : "40%",
                             marginTop: 10
                         }} />
                     <textarea type="text" name="Body" value={body} onChange={(e) => { setBody(e.target.value) }} placeholder="Query"
@@ -63,7 +64,7 @@ const Footer = () => {
                             marginTop: 10,
                             borderRadius: 10,
                             padding: 10,
-                            width: "60%"
+                            width: isMobile ? "100%" : "60%"
                         }} />
                     <Input type="submit" value="Submit" style={{
                         padding: 0,
@@ -73,12 +74,14 @@ const Footer = () => {
                     }} />
                 </form>
             </div>
-            <h4 style={{ 
-                color: 'white', 
-                fontWeight: 500, 
-                fontSize: 15,
-                marginTop: isMobile ? 50 : 0
-            }}> Documentation </h4>
+            <Link href="/documentation">
+                <h4 style={{
+                    color: 'white',
+                    fontWeight: 500,
+                    fontSize: 15,
+                    marginTop: isMobile ? 50 : 0
+                }}> Documentation </h4>
+            </Link>
         </footer>
     )
 }

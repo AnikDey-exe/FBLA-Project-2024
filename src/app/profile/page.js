@@ -13,6 +13,7 @@ import Loading from "../components/Loading";
 
 export default function Profile() {
     const { currentUser, setCurrentUser } = useContext(User);
+    const isMobile = useMediaQuery("(max-width: 850px)");
 
     const [loading, setLoading] = useState(true);
     const [account, setAccount] = useState({});
@@ -53,8 +54,9 @@ export default function Profile() {
                 </motion.h2>
                 <div style={{
                     display: "flex", 
-                    flexDirection: "row",
-                    justifyContent: "space-between"
+                    flexDirection: isMobile ? "column" : "row",
+                    justifyContent: "space-between",
+                    marginTop: isMobile ? 0 : 20
                 }}>
                     <ApplicationsList applications={applications}/>
                     <AccountCard account={account}/>
