@@ -8,23 +8,29 @@ import { PRIMARY_COLOR } from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import Loading from "./Loading";
 
 const OpeningsList = () => {
     const isMobile = useMediaQuery("(max-width: 700px)");
 
     const [openings, setOpenings] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function getOpenings() {
+            setLoading(true);
             const { result, error } = await getDocuments("Listings")
             let data = []
             result.forEach((item, i) => {
                 data.push(item.data())
             })
             setOpenings(data)
+            setLoading(false);
         }
         getOpenings();
     }, [])
+
+    if(loading) return <Loading height={100}/>
 
     return (
         <motion.div

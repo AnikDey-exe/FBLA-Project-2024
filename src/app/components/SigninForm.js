@@ -9,6 +9,7 @@ import { useMediaQuery } from "../hooks/useMediaQuery";
 import signIn from "../database/auth/signIn";
 import { User } from "../contexts/UserContext";
 import Warning from "./Warning";
+import { useRouter } from "next/navigation";
 
 const SignupForm = () => {
     const isMobile = useMediaQuery("(max-width: 900px)");
@@ -18,6 +19,8 @@ const SignupForm = () => {
     const { currentUser, setCurrentUser } = useContext(User);
 
     const [alert, setAlert] = useState(null);
+
+    const router = useRouter();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -38,6 +41,8 @@ const SignupForm = () => {
 
         setEmail('')
         setPassword('')
+
+        router.push('/')
     }
 
     if(currentUser != "") return <Warning message="You are already logged in, please log out to access this page."/>

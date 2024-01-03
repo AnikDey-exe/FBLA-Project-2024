@@ -1,8 +1,8 @@
 "use client";
 
-const Loading = () => {
+const Loading = ({height="auto"}) => {
     return (
-        <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>Loading</div>
+        <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", height: height }}>Loading</div>
     )
 }
 

@@ -44,20 +44,30 @@ const Benefits = () => {
                 gap: 20,
                 marginTop: 20
             }}>
-                {benefits.map((benefit, i) => {
-                    return (
-                        <Card
-                            title={benefit.title}
-                            description={benefit.description}
-                            imageSrc={benefit.image}
-                            key={i}
-                            index={i}
-                            isMobile={isMobile} />
-                    )
-                })}
+                {isMobile ?
+                    benefits.map((benefit, i) => {
+                        return (
+                            <MobileCard
+                                title={benefit.title}
+                                description={benefit.description}
+                                imageSrc={benefit.image}
+                                key={i}
+                                index={i}
+                                isMobile={isMobile} />
+                        )
+                    }) : benefits.map((benefit, i) => {
+                        return (
+                            <Card
+                                title={benefit.title}
+                                description={benefit.description}
+                                imageSrc={benefit.image}
+                                key={i}
+                                index={i} />
+                        )
+                    })}
             </div>
             <div style={{
-                display:"flex",
+                display: "flex",
                 flexDirection: "row"
             }}>
                 <Button
@@ -101,6 +111,42 @@ const Card = ({ title, description, imageSrc, index, isMobile }) => {
             variants={{
                 visible: { y: 0 },
                 hidden: { y: 200 }
+            }}>
+            <Image
+                src={require(`../../../public/${imageSrc}`)}
+                width={50}
+                height={50}
+                style={{
+                    width: '50%',
+                    aspectRatio: 1
+                }}
+                unoptimized />
+            <h4 style={{ marginTop: 10 }}>{title}</h4>
+            <p style={{ marginTop: 10 }}>{description}</p>
+        </motion.div>
+    )
+}
+
+const MobileCard = ({ title, description, imageSrc, index }) => {
+    return (
+        <motion.div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center',
+                // borderWidth: 1,
+                // borderColor: 'black', 
+                // borderStyle: 'solid'
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ ease: "easeOut", duration: 0.75, type: "spring", stiffness: 50 }}
+            variants={{
+                visible: { x: 0 },
+                hidden: { x: -200 }
             }}>
             <Image
                 src={require(`../../../public/${imageSrc}`)}

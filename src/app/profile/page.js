@@ -16,8 +16,8 @@ export default function Profile() {
     const isMobile = useMediaQuery("(max-width: 850px)");
 
     const [loading, setLoading] = useState(true);
-    const [account, setAccount] = useState({});
-    const [applications, setApplications] = useState([]);
+    const [account, setAccount] = useState(null);
+    const [applications, setApplications] = useState(null);
 
     useEffect(() => {
         async function getDetails() {
@@ -37,7 +37,9 @@ export default function Profile() {
         getDetails();
     }, [currentUser])
 
-    if (loading) return <Loading/>
+    if (currentUser == "") return <Warning message="Please sign in to view your account." />
+
+    if (loading || !account) return <Loading/>
 
     return (
         <main>
@@ -58,7 +60,10 @@ export default function Profile() {
                     justifyContent: "space-between",
                     marginTop: isMobile ? 0 : 20
                 }}>
+
                     <ApplicationsList applications={applications}/>
+
+
                     <AccountCard account={account}/>
                 </div>
             </div>

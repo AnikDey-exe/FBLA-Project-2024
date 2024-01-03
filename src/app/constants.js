@@ -75,7 +75,13 @@ export const creditedImages = [
 
 export const creditedSources = [
     'https://resources.workable.com/tutorial/employee-benefits-guide',
-    'https://www.forbes.com/advisor/business/employee-benefits/'
+    'https://www.forbes.com/advisor/business/employee-benefits/',
+    'https://www.ziprecruiter.com/Salaries/What-Is-the-Average-Marketing-Salary-by-State',
+    'https://mint.intuit.com/salary/food-delivery-driver/ga',
+    'https://www.payscale.com/research/US/Job=Lead_Software_Engineer/Salary',
+    'https://www.indeed.com/career/front-end-developer/salaries',
+    'https://www.indeed.com/career/customer-service-representative/salaries/Dallas--TX',
+    'https://www.ziprecruiter.com/Salaries/BACK-END-Developer-Salary#Yearly'
 ]
 
 /*
@@ -86,6 +92,8 @@ export const creditedSources = [
     https://unsplash.com/photos/variety-of-sliced-fruits-08bOYnH_r_E 
     https://unsplash.com/photos/black-calculator-beside-black-pen-on-white-printer-paper-I3HPUolh5hA
     https://unsplash.com/photos/six-white-sticky-notes--1_RZL8BGBM
+    https://mint.intuit.com/salary/food-delivery-driver/ga 
+    
 
     FlatIcons:
     Sonnycandra
@@ -98,4 +106,10 @@ export const creditedSources = [
     Sources:
     https://resources.workable.com/tutorial/employee-benefits-guide 
     https://www.forbes.com/advisor/business/employee-benefits/  
+    https://www.ziprecruiter.com/Salaries/What-Is-the-Average-Marketing-Salary-by-State 
+    https://mint.intuit.com/salary/food-delivery-driver/ga
+    https://www.payscale.com/research/US/Job=Lead_Software_Engineer/Salary
+    https://www.indeed.com/career/front-end-developer/salaries
+    https://www.indeed.com/career/customer-service-representative/salaries/Dallas--TX
+    https://www.ziprecruiter.com/Salaries/BACK-END-Developer-Salary#Yearly
 */

@@ -41,7 +41,7 @@ const About = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{ ease: "easeOut", duration: 0.75 }}
+                    transition={{ ease: "easeOut", duration: 0.75}}
                     variants={{
                         visible: { opacity: 1, scale: 1 },
                         hidden: { opacity: 0, scale: 0 }
@@ -65,9 +65,10 @@ const About = () => {
                     viewport={{ once: true }}
                     transition={{ ease: "easeOut", duration: 0.75, type: "spring", stiffness: 50 }}
                     variants={{
-                        visible: { x: 0 },
-                        hidden: {  x: 100 }
-                    }}>
+                        visible: { opacity: 1, scale: 1 },
+                        hidden: { opacity: 0, scale: 0 }
+                    }}
+                    >
                 <Image
                     src={require('../../../public/about.jpg')}
                     width={50}

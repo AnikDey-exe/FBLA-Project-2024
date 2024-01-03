@@ -33,6 +33,7 @@ const SignupForm = () => {
             return
         }
         if (signupState === "registering") {
+            setSignupState("processing")
             fetch(`https://${process.env.NEXT_PUBLIC_EMAIL_API_ROUTE}.onrender.com/sendemail/`, {
                 method: 'POST',
                 headers: {
@@ -155,7 +156,7 @@ const SignupForm = () => {
                             }} />
                         </>
                     }
-                    <Input type="submit" value="Sign Up" style={{
+                    <Input type="submit" value={signupState === "processing" ? "Verifying" : "Sign Up"} style={{
                         backgroundColor: PRIMARY_COLOR,
                         color: "white",
                         borderRadius: 10,

@@ -19,7 +19,8 @@ const HeroBanner = ({ title, backgroundImage, hasButton }) => {
                 initial={{
                     backgroundColor: "#FFFBFA",
                     display: "flex",
-                    position: "relative"
+                    position: "relative",
+                    height: 600
                 }}>
                 <Image
                     src={require(`../../../public/${backgroundImage}`)}
@@ -32,7 +33,7 @@ const HeroBanner = ({ title, backgroundImage, hasButton }) => {
                     }}
                     unoptimized />
                 <motion.div animate={{
-                    y: 120,
+                    y: 157.5,
                     opacity: 1
                 }}
                     initial={{
@@ -49,7 +50,7 @@ const HeroBanner = ({ title, backgroundImage, hasButton }) => {
                         justifyContent: "center",
                         opacity: 0
                     }}
-                    transition={{ type: "spring", ease: "easeOut", duration: 1, stiffness: 50 }}>
+                    transition={{ type: "spring", ease: "easeOut", duration: 1, stiffness: 50, delay: 0.75 }}>
                     <h1 style={{ textAlign: "center" }}>{title}</h1>
                     {hasButton &&
                         <Link href="/choose">

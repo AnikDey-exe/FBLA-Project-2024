@@ -118,7 +118,7 @@ const ApplicationCard = ({ positionTitle, positionId, fullName, address, phoneNu
                 flexDirection: "row",
                 justifyContent: "space-between"
             }}>
-                <h3 style={{ fontWeight: 700 }}>{positionTitle}</h3>
+                <h3 style={{ fontWeight: 700,  wordWrap: "break-word"  }}>{positionTitle}</h3>
                 <FontAwesomeIcon icon={faTrash} color="red" onClick={onModalOpen} />
             </div>
             <h5 style={{ display: "flex" }}>Applied as <h5 style={{ fontWeight: "500", marginLeft: 5 }}>{fullName}</h5></h5>
