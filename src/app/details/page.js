@@ -16,6 +16,7 @@ export default function Details() {
     useEffect(()=>{
         async function getDetails() {
             setLoading(true)
+            // gets details about the selected job opening
             const { result, error } = await getDocument("Listings", positionId)
             setDetails(result)
             setLoading(false)

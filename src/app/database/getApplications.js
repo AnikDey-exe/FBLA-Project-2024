@@ -3,6 +3,7 @@ import { getFirestore, collection, query, where, getDocs } from "firebase/firest
 
 const db = getFirestore(firebase_app);
 
+// get the applications of a user (parameter)
 export default async function getApplications(email) {
     let applicationsResult = null;
     let applicationsError = null;

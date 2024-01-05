@@ -30,11 +30,13 @@ const AccountCard = ({ account }) => {
     async function handleUploadProfilePicture(e) {
         e.preventDefault();
 
+        // checks if profilePic is blank
         if (profilePic === "") {
             setAlert("Please upload an image")
             return;
         }
 
+        // upload profile picture file to storage bucket
         const { result, error } = await uploadFile("profilePictures", account.email, profilePic)
 
         if (error) {
@@ -42,12 +44,14 @@ const AccountCard = ({ account }) => {
             return;
         }
 
+        // fetches uploaded file url from storage bucket
         const res = await getFile("profilePictures", account.email);
         if (res[1]) {
             setAlert('Something went wrong')
             return;
         }
 
+        // updates the user profile picture to that url
         const error2 = await updateProfilePicture(account.email, res[0])
         if (error2) {
             setAlert('Something went wrong')

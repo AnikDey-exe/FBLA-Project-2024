@@ -4,6 +4,8 @@
 
 body {
   background-color: #FFFBFA;
+  min-height: 100vh;
+  position: relative;
 }
 
 h1 {

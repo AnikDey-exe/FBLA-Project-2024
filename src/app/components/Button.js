@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
+// custom styled button used throughout the website
 const Button = ({children, onPress, style={}}) => {
     return (
         <button onClick={onPress} style={{

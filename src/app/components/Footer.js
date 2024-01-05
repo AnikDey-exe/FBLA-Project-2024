@@ -11,11 +11,13 @@ import Link from "next/link";
 const Footer = () => {
     const isMobile = useMediaQuery("(max-width: 900px)");
 
+    // inital form input values
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [body, setBody] = useState('');
 
     function handleSubmit(e) {
+        // attempts to add the query to the database
         const { result, error } = addData("Contacts", createId(), {
             name: name,
             email: email,
@@ -24,6 +26,7 @@ const Footer = () => {
         if (error) {
             console.log(error)
         }
+        // resets the form inputs
         setName('')
         setEmail('')
         setBody('')
@@ -33,12 +36,14 @@ const Footer = () => {
     return (
         <footer style={{
             width: "100%",
-            height: 'fit-content',
+            height: isMobile ? 420 : 350,
             backgroundColor: PRIMARY_COLOR,
             padding: 50,
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            position: "absolute",
+            bottom: 0
         }}>
             <div style={{
                 width: isMobile ? "100%" : "50%"

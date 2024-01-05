@@ -23,6 +23,7 @@ export default function Profile() {
         async function getDetails() {
             setLoading(true)
             let tempApplications = []
+            // get the submitted applications of the user and user details
             const { result, error } = await getUserDocument(currentUser);
             const { applicationsResult, applicationsError } = await getApplications(currentUser);
             result.forEach((doc)=>{
@@ -39,6 +40,7 @@ export default function Profile() {
 
     if (currentUser == "") return <Warning message="Please sign in to view your account." />
 
+    // if the data is being fetched or the account details have not been loaded yet then return the loading screen
     if (loading || !account) return <Loading/>
 
     return (

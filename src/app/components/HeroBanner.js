@@ -33,7 +33,7 @@ const HeroBanner = ({ title, backgroundImage, hasButton }) => {
                     }}
                     unoptimized />
                 <motion.div animate={{
-                    y: 157.5,
+                    y: isMobile ? 120 : 157.5,
                     opacity: 1
                 }}
                     initial={{
@@ -67,65 +67,6 @@ const HeroBanner = ({ title, backgroundImage, hasButton }) => {
                         </Link>
                     }
                 </motion.div>
-                {/* <motion.h1 animate={{
-                    y: 120
-                }}
-                    initial={{
-                        color: PRIMARY_COLOR,
-                        translateY: -120,
-                        padding: 30,
-                        position: 'absolute',
-                        top: 0,
-                        width: "100%",
-                        height: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center"
-                    }}
-                    transition={{ type: "spring", ease: "easeOut", duration: 1, stiffness: 50 }}>The Pinnacle of Delivery Solutions</motion.h1>
-                {!isMobile &&
-                    <motion.button
-                        animate={{
-                            y: 120
-                        }}
-                        initial={{
-                            color: PRIMARY_COLOR,
-                            translateY: -120,
-                            padding: 30,
-                            position: 'absolute',
-                            top: 50,
-                            width: "100%",
-                            height: "100%",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center"
-                        }}
-                        transition={{ type: "spring", ease: "easeOut", duration: 1, stiffness: 50 }} >
-                        Apply Now
-                    </motion.button>
-                }
-                {isMobile &&
-                    <motion.button
-                    animate={{
-                        y: 120
-                    }}
-                    initial={{
-                        color: PRIMARY_COLOR,
-                        translateY: -120,
-                        padding: 30,
-                        position: 'absolute',
-                        top: 350,
-                        left: 0,
-                        width: "fit-content",
-                        height: "fit-content",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center"
-                    }}
-                    transition={{ type: "spring", ease: "easeOut", duration: 1, stiffness: 50 }} >
-                    Apply Now
-                </motion.button>
-                } */}
             </motion.div>
         </>
     )

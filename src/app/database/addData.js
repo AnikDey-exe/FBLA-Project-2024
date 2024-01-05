@@ -3,6 +3,7 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 const db = getFirestore(firebase_app);
 
+// adds the data (parameter) to a collection (parameter) under an id (parameter)
 export default async function addData(collection, id, data) {
     let result = null;
     let error = null;

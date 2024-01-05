@@ -3,6 +3,7 @@ import { getFirestore, collection, query, where, getDocs } from "firebase/firest
 
 const db = getFirestore(firebase_app);
 
+// gets the account details of an email (parameter)
 export default async function getUserDocument(email) {
     let result = null;
     let error = null;

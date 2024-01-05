@@ -36,6 +36,23 @@ const Documentation = () => {
                     )
                 })}
             </div>
+            <h4 style={{ marginTop: 20, fontWeight: "600" }}>Front End</h4>
+            <h5 style={{marginTop: 5}}> JavaScript </h5>
+            <h5 style={{marginTop: 5}}> HTML/CSS </h5>
+            <h5 style={{marginTop: 5}}> ReactJS </h5>
+            <h5 style={{marginTop: 5}}> NextJS </h5>
+
+            <h4 style={{ marginTop: 20, fontWeight: "600" }}>Emailing Service</h4>
+            <h5 style={{marginTop: 5}}> Twilio SendGrid </h5>
+
+            <h4 style={{ marginTop: 20, fontWeight: "600" }}>Database</h4>
+            <h5 style={{marginTop: 5}}> Firebase </h5>
+
+            <h4 style={{ marginTop: 20, fontWeight: "600" }}>Hosting Service</h4>
+            <h5 style={{marginTop: 5}}> Vercel </h5>
+
+            <h4 style={{ marginTop: 20, fontWeight: "600" }}>Source Code</h4>
+            <a href="https://github.com/AnikDey-exe/FBLA-Project-2024" style={{textDecoration: 'underline'}}>GitHub Link</a>
         </div>
     )
 }

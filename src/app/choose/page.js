@@ -14,11 +14,13 @@ const Choose = () => {
 
     useEffect(() => {
         async function getOpenings() {
+            // gets the current listings
             const { result, error } = await getDocuments("Listings")
             let data = []
             result.forEach((item, i) => {
                 data.push(item.data())
             })
+            // transforms the data to only a list of the titles of the openings
             setOpenings(data.map((item) => { return { name: item.id, displayValue: item.title } }))
             setOpening(data[0].id)
         }

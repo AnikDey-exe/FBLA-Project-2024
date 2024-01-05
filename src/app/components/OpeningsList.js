@@ -19,6 +19,7 @@ const OpeningsList = () => {
     useEffect(() => {
         async function getOpenings() {
             setLoading(true);
+            // get all the active job openings
             const { result, error } = await getDocuments("Listings")
             let data = []
             result.forEach((item, i) => {
@@ -30,6 +31,7 @@ const OpeningsList = () => {
         getOpenings();
     }, [])
 
+    // checks if the job openings have been fetched
     if(loading) return <Loading height={100}/>
 
     return (

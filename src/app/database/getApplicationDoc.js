@@ -3,6 +3,7 @@ import { getFirestore, collection, query, where, getDocs } from "firebase/firest
 
 const db = getFirestore(firebase_app);
 
+// gets any existing application made by an email (parameter) for a position (parameter)
 export default async function getApplicationDocument(positionId, email) {
     let application = null;
     let applicationError = null;

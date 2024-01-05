@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
+// warning component that is used throughout the website
 const Warning = ({ message }) => {
     const isMobile = useMediaQuery("(max-width: 700px)");
 

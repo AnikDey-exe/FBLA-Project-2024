@@ -19,6 +19,7 @@ const ApplicationsList = ({ applications }) => {
 
     const [applicationsState, setApplicationsState] = useState(applications);
 
+    // function that shows/hides the modal
     const toggle = () => setModal(!modal);
 
     return (
@@ -62,6 +63,7 @@ const ApplicationsList = ({ applications }) => {
                                     status={item.applicationStatus}
                                     extraInformation={item.applicantExtraInformation}
                                     onModalOpen={() => {
+                                        // opens modal asking for delete confirmation
                                         setMessage("Are you sure you want to delete this application? This action cannot be undone.")
                                         toggle()
                                         setApplicationToDeleteId(item.id)
@@ -78,6 +80,7 @@ const ApplicationsList = ({ applications }) => {
                         <Button
                             onPress={async () => {
                                 toggle()
+                                // attempts to delete the selected application
                                 const error = await deleteDocument("Applications", applicationToDeleteId)
                                 if (error) {
                                     setMessage("Something went wrong.")
@@ -111,7 +114,8 @@ const ApplicationCard = ({ positionTitle, positionId, fullName, address, phoneNu
                 padding: 20,
                 borderRadius: 10,
                 display: "flex",
-                flexDirection: "column"
+                flexDirection: "column",
+                position: "relative"
             }}>
             <div style={{
                 display: "flex",
@@ -137,7 +141,8 @@ const ApplicationCard = ({ positionTitle, positionId, fullName, address, phoneNu
                     padding: 7.5,
                     borderRadius: 25,
                     fontWeight: 600,
-                    marginTop: 15
+                    marginTop: 15,
+                    marginBottom: 70
                 }}>{status}</h6>
             <Link href={{
                 pathname: 'details',
@@ -147,7 +152,7 @@ const ApplicationCard = ({ positionTitle, positionId, fullName, address, phoneNu
             }}
                 rel="noopener noreferrer"
                 target="_blank"
-                style={{ alignSelf: "flex-end", marginTop: 20 }}>
+                style={{ alignSelf: "flex-end", marginTop: 20, position: "absolute", bottom: 20, right: 20}}>
                 <Button style={{ backgroundColor: PRIMARY_COLOR, height: 30, borderRadius: 10, display: "flex", alignItems: "center" }}>
                     <span style={{ color: 'white', fontWeight: 600 }}>Job Details</span>
                 </Button>

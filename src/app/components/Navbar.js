@@ -24,20 +24,24 @@ const Navbar = () => {
 
     const { currentUser, setCurrentUser } = useContext(User);
 
+    // gets the current path of page (/, /benefits, /apply, etc)
     const pathname = usePathname()
 
     useEffect(() => {
+        // sets the navbar to always visible if the page is not the home page, benefits page, openings page, or choose opening page
+        if(pathname !== "/" && pathname !== "/benefits" && pathname !== "/openings" && pathname !== "/choose") setNavbarOpacity(1)
         const handle = () => {
-            if (window.scrollY > 400 || window.scrollY < 75) {
+            if (window.scrollY > 400 || window.scrollY < 75) { // checks if user has scrolled to the top or bottom parts of the webpage
                 if (navbarOpacity == 0) {
-                    setNavbarOpacity(1)
+                    setNavbarOpacity(1) // make navbar visible
                 }
-            } else {
+            } else { // checks if user is scrolling through the middle of the webpage
                 if (navbarOpacity == 1) {
-                    setNavbarOpacity(0)
+                    setNavbarOpacity(0) // make navbar hidden
                 }
             }
         }
+        // only apply the scroll event listener if the device is not a mobile device or the page is the home page, benefits page, openings page, or choose openings page
         if (!isMobile && (pathname === "/" || pathname === "/benefits" || pathname === "/openings" || pathname === "/choose")) {
             window.addEventListener('scroll', handle)
         }

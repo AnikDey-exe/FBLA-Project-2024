@@ -3,7 +3,6 @@
 import { useState, useContext } from "react";
 import Input from "./Input";
 import { PRIMARY_COLOR } from "../constants";
-import Button from "./Button";
 import Link from "next/link";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import signUp from "../database/auth/signUp";
@@ -14,6 +13,7 @@ import Warning from "./Warning";
 const SignupForm = () => {
     const isMobile = useMediaQuery("(max-width: 900px)");
 
+    // initial form inputs
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -28,11 +28,15 @@ const SignupForm = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        // checks if any of the fields are blank
         if (name == "" || email == "" || password == "") {
             setAlert('Please fill out all the fields')
             return
         }
+
+        // checks the signupState
         if (signupState === "registering") {
+            // attempts to send email verification code to the inputted email
             setSignupState("processing")
             fetch(`https://${process.env.NEXT_PUBLIC_EMAIL_API_ROUTE}.onrender.com/sendemail/`, {
                 method: 'POST',
@@ -48,6 +52,7 @@ const SignupForm = () => {
                 }
                 return response.json();
             }).then(data => {
+                // stores the actual verification code in the state called code
                 setCode(data.message)
                 setSignupState('verifying')
                 setAlert('A verification code has been sent to your email')
@@ -55,11 +60,14 @@ const SignupForm = () => {
                 console.error('Error:', error);
             })
         } else {
+            // checks if the user inputted code is the same as the actual code
             if (code != userCode) {
                 setAlert("The verification code you inputted is incorrect")
                 return
             }
             setAlert('')
+
+            // attempts to signup the user
             const { result, error } = await signUp(email, password);
 
             if (error) {
@@ -67,6 +75,7 @@ const SignupForm = () => {
                 return console.log(error)
             }
 
+            // adds the user data to the database
             const { result2, error2 } = await addData("Users", email, {
                 email: email,
                 name: name,
@@ -78,6 +87,7 @@ const SignupForm = () => {
                 return console.log(error2)
             }
 
+            // resets form fields
             setAlert('Signed up successfully, welcome to ExpressEats!')
             setName('')
             setEmail('')
@@ -88,6 +98,7 @@ const SignupForm = () => {
         }
     }
 
+    // if there is a currently logged in user then return a warning
     if(currentUser != "") return <Warning message="You are already logged in, please log out to access this page."/>
 
     return (

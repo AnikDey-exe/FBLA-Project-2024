@@ -3,6 +3,7 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const storage = getStorage(firebase_app);
 
+// gets the file url from a collection (parameter) under an id (parameter) from the cloud storage
 export default async function getFile(collection, id) {
     let fileUrl = null;
     let error = null;

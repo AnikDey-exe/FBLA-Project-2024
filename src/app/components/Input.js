@@ -1,3 +1,5 @@
+// custom styled input used throughout the website
+
 const Input = ({type, name, value, onChange, placeholder, disabled, pattern, style={}}) => {
     return (
         <input 

@@ -3,6 +3,7 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const db = getFirestore(firebase_app);
 
+// gets the document from a collection (parameter) using an id (parameter)
 export default async function getDocument(collection, id) {
     let docRef = doc(db, collection, id);
 

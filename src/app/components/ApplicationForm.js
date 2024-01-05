@@ -17,6 +17,7 @@ const ApplicationForm = ({ details }) => {
     const { currentUser, setCurrentUser } = useContext(User);
     const isMobile = useMediaQuery("(max-width: 700px)");
 
+    // inital values of form inputs
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [address, setAddress] = useState('');
@@ -26,6 +27,7 @@ const ApplicationForm = ({ details }) => {
 
     const [applicationState, setApplicationState] = useState('applying');
 
+    // checks if there is a logged in user and returns a warning if there is not
     if (currentUser == "") return <Warning message="Please sign in before applying to a position." />
 
     async function handleSubmit(e) {
@@ -33,6 +35,7 @@ const ApplicationForm = ({ details }) => {
 
         e.preventDefault()
 
+        // gets the application submitted by this user for this position
         const { application, applicationError } = await getApplicationDocument(details.id, currentUser);
 
         if (applicationError) {
@@ -42,6 +45,7 @@ const ApplicationForm = ({ details }) => {
 
         let applied = false;
         
+        // if the application already exists return an alert
         application.forEach((item,i)=>{
             setAlert('You already applied for this position')
             applied = true;
@@ -49,12 +53,16 @@ const ApplicationForm = ({ details }) => {
 
         if(applied) return;
 
+        // checks if address or resume fields are blank
         if (address === "" || resume === "") {
             setAlert("Please fill out the required fields")
             return;
         }
+
+        // changes the application state
         setApplicationState('processing');
 
+        // upload resume to cloud storage bucket
         let resumeId = "resume-" + createId();
         const { result2, error2 } = await uploadFile("resumes", resumeId, resume)
 
@@ -63,6 +71,7 @@ const ApplicationForm = ({ details }) => {
             return;
         }
 
+        // get file url from storage bucket
         const res = await getFile("resumes", resumeId);
         if (res[1]) {
             setAlert('Something went wrong')
@@ -71,6 +80,7 @@ const ApplicationForm = ({ details }) => {
 
         let accountName = "";
 
+        // gets the user account details
         const { result, error } = await getUserDocument(currentUser);
 
         if (error) {
@@ -82,6 +92,7 @@ const ApplicationForm = ({ details }) => {
             accountName = doc.data().name;
         })
 
+        // adds the application to the database
         const { result4, error4 } = await addData("Applications", resumeId, {
             id: resumeId,
             positionId: details.id,
@@ -100,6 +111,7 @@ const ApplicationForm = ({ details }) => {
             return;
         }
 
+        // resets the fields
         setAlert(`Succesfully applied for the ${details.title} position! Check your email for updates on your application.`)
         setName('');
         setPhoneNumber('');

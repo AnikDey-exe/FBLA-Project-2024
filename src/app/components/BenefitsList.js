@@ -34,7 +34,7 @@ const Card = ({ sectionTitle, sectionImage, sectionInfo, index, isMobile }) => {
             style={{
                 display: "flex",
                 flexDirection: isMobile ? "column" : index % 2 == 0 ? "row" : "row-reverse",
-                marginTop: index === 0 ? 50: 100,
+                marginTop: index === 0 ? 100: 100,
                 marginBottom: 100
             }}
             initial="hidden"

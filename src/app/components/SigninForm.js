@@ -13,6 +13,8 @@ import { useRouter } from "next/navigation";
 
 const SignupForm = () => {
     const isMobile = useMediaQuery("(max-width: 900px)");
+
+    // inital form inputs
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,11 +26,14 @@ const SignupForm = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        // checks if email and password fields are blank and returns alert
         if (email == "" || password == "") {
             setAlert('Please fill out all the fields')
             return
         }
         setAlert('')
+        
+        // attempts to sign in user
         const { result, error } = await signIn(email, password);
 
         if (error) {
@@ -36,15 +41,19 @@ const SignupForm = () => {
             return console.log(error.message)
         }
 
+        // sets the currently logged in user to the inputted email
         localStorage.setItem("currentUserEmail", email)
         setCurrentUser(email)
 
+        // resets form inputs
         setEmail('')
         setPassword('')
 
+        // navigates back to home page
         router.push('/')
     }
 
+    // if there is a currently logged in user then return a warning
     if(currentUser != "") return <Warning message="You are already logged in, please log out to access this page."/>
 
     return (
