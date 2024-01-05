@@ -6,10 +6,12 @@ export default function Home() {
   return (
     <main>
       <div>
-        <HeroBanner title="The Pinnacle of Food Delivery Solutions" 
-        backgroundImage="herobanner2.jpg" hasButton={true}/>
-        <About/>
-        <Benefits/>
+        <HeroBanner title="The Pinnacle of Food Delivery Solutions"
+          backgroundImage="herobanner2.jpg" hasButton={true} />
+        <div>
+          <About />
+          <Benefits />
+        </div>
       </div>
     </main>
   )

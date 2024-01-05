@@ -41,9 +41,11 @@ export default function RootLayout({ children }) {
         <UserContext>
           <ImportBS />
           <Navbar />
-          <div style={{
-            paddingBottom: 400
-          }}>
+          <div 
+          style={{
+            flexGrow: 1
+          }}
+          >
             {children}
           </div>
           <Footer />

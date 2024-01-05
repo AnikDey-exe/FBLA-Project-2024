@@ -96,7 +96,7 @@ const Navbar = () => {
                                 <Button style={{ padding: 0, width: 'fit-content' }} onPress={() => {
                                     setAccountClicked(!accountClicked)
                                 }}>
-                                    <AccountDrawer isVisible={accountClicked} />
+                                    <AccountDrawer isVisible={accountClicked} onClose={()=>{setAccountClicked(false)}}/>
                                     <span>My Account</span>
                                 </Button>
                             }
@@ -126,7 +126,8 @@ const Drawer = ({ isVisible, onClose }) => {
     return (
         <motion.div
             animate={{
-                opacity: isVisible ? 1 : 0
+                opacity: isVisible ? 1 : 0,
+                zIndex: isVisible ? 1000 : -9999
             }}
             initial={{
                 backgroundColor: PRIMARY_COLOR,
@@ -140,6 +141,9 @@ const Drawer = ({ isVisible, onClose }) => {
                 zIndex: 5,
                 alignItems: "center",
                 justifyContent: "center"
+            }}
+            style={{
+                pointerEvents: !isVisible && "none"
             }}>
             <ul
                 style={{
@@ -202,13 +206,14 @@ const Drawer = ({ isVisible, onClose }) => {
     )
 }
 
-const AccountDrawer = ({ isVisible }) => {
+const AccountDrawer = ({ isVisible, onClose }) => {
     const { currentUser, setCurrentUser } = useContext(User);
 
     return (
         <motion.div
             animate={{
-                opacity: isVisible ? 1 : 0
+                opacity: isVisible ? 1 : 0,
+                zIndex: isVisible ? 1000 : -9999
             }}
             initial={{
                 backgroundColor: "white",
@@ -222,8 +227,11 @@ const AccountDrawer = ({ isVisible }) => {
                 right: 22.5,
                 zIndex: 5,
                 padding: 5
+            }}
+            style={{
+                pointerEvents: !isVisible && "none"
             }}>
-            <Link href="/profile" style={{ marginTop: 5, marginBottom: 5 }}>
+            <Link href="/profile" style={{ marginTop: 5, marginBottom: 5 }} onClick={onClose}>
                 <span>Profile</span>
             </Link>
             <hr />

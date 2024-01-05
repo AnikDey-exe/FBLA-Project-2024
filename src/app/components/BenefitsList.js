@@ -62,7 +62,7 @@ const Card = ({ sectionTitle, sectionImage, sectionInfo, index, isMobile }) => {
                     <div style={{marginTop: 20}}>
                         {sectionInfo.map((item, i) => {
                             return (
-                                <li key={i} style={{ textAlign: isMobile ? "center" : "left", marginTop: 5}}>{item}</li>
+                                <li key={i} style={{ textAlign: isMobile ? "center" : "left", marginTop: 5, listStyleType: "circle"}}>{item}</li>
                             )
                         })}
                     </div>

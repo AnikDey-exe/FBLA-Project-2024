@@ -36,14 +36,12 @@ const Footer = () => {
     return (
         <footer style={{
             width: "100%",
-            height: isMobile ? 420 : 350,
+            height: "fit-content",
             backgroundColor: PRIMARY_COLOR,
             padding: 50,
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
             justifyContent: 'space-between',
-            position: "absolute",
-            bottom: 0
         }}>
             <div style={{
                 width: isMobile ? "100%" : "50%"

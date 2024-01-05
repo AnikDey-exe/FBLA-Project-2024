@@ -41,17 +41,17 @@ const ApplicationForm = ({ details }) => {
         if (applicationError) {
             setAlert('Something went wrong')
             return;
-        }   
+        }
 
         let applied = false;
-        
+
         // if the application already exists return an alert
-        application.forEach((item,i)=>{
+        application.forEach((item, i) => {
             setAlert('You already applied for this position')
             applied = true;
         })
 
-        if(applied) return;
+        if (applied) return;
 
         // checks if address or resume fields are blank
         if (address === "" || resume === "") {
@@ -186,17 +186,21 @@ const ApplicationForm = ({ details }) => {
                 <Input type="file"
                     onChange={(e) => { setResume(e.target.files[0]) }}
                     style={{
-                        width: "100%",
+                        width: "fit-content",
                         paddingLeft: 0,
                         borderRadius: 10,
-                        marginTop: 7.5
+                        marginTop: 7.5,
                     }} />
-                <Input type="submit" value={applicationState !== "processing" ? "Apply" : "Processing"} style={{
-                    backgroundColor: PRIMARY_COLOR,
-                    color: 'white',
-                    fontWeight: 'bold',
-                    marginTop: 20
-                }} disabled={applicationState !== "processing" ? false : true}/>
+                <Input
+                    type="submit"
+                    value={applicationState !== "processing" ? "Apply" : "Processing"}
+                    style={{
+                        backgroundColor: PRIMARY_COLOR,
+                        color: 'white',
+                        fontWeight: 'bold',
+                        marginTop: 20
+                    }}
+                    disabled={applicationState !== "processing" ? false : true} />
             </form>
             {alert && <h5 style={{ marginTop: 20, color: 'red' }}>{alert}</h5>}
         </div>

@@ -59,7 +59,14 @@ const Position = ({ details }) => {
             <h3 style={{ fontWeight: 700, marginTop: 20 }}>Duties</h3>
             {details.duties.map((item, i) => {
                 return (
-                    <li key={i}>{item}</li>
+                    <li
+                        key={i}
+                        style={{
+                            listStyleType: 'circle',
+                        }}
+                    >
+                        {item}
+                    </li>
                 )
             })}
             <br />
@@ -69,7 +76,9 @@ const Position = ({ details }) => {
             <h3 style={{ fontWeight: 700, marginTop: 20 }}>Requirements</h3>
             {details.requirements.map((item, i) => {
                 return (
-                    <li key={i}>{item}</li>
+                    <li key={i} style={{
+                        listStyleType: 'circle',
+                    }}>{item}</li>
                 )
             })}
             <br />
@@ -79,7 +88,9 @@ const Position = ({ details }) => {
             <h3 style={{ fontWeight: 700, marginTop: 20 }}>Skills</h3>
             {details.skills.map((item, i) => {
                 return (
-                    <li key={i}>{item}</li>
+                    <li key={i} style={{
+                        listStyleType: 'circle',
+                    }}>{item}</li>
                 )
             })}
         </div>
