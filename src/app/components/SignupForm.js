@@ -38,7 +38,7 @@ const SignupForm = () => {
         if (signupState === "registering") {
             // attempts to send email verification code to the inputted email
             setSignupState("processing")
-            fetch(`https://${process.env.NEXT_PUBLIC_EMAIL_API_ROUTE}.onrender.com/sendemail/`, {
+            fetch(`https://${process.env.NEXT_PUBLIC_EMAIL_API_ROUTE}sendemail/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
