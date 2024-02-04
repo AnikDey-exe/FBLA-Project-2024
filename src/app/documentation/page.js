@@ -44,6 +44,7 @@ const Documentation = () => {
 
             <h4 style={{ marginTop: 20, fontWeight: "600" }}>Emailing Service</h4>
             <h5 style={{marginTop: 5}}> Twilio SendGrid </h5>
+            <h5 style={{marginTop: 5}}> Waypoint </h5>
 
             <h4 style={{ marginTop: 20, fontWeight: "600" }}>Database</h4>
             <h5 style={{marginTop: 5}}> Firebase </h5>
