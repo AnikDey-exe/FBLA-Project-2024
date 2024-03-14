@@ -112,7 +112,7 @@ const ApplicationForm = ({ details }) => {
         }
 
         // resets the fields
-        setAlert(`Succesfully applied for the ${details.title} position! Check your email for updates on your application.`)
+        setAlert(`Successfully applied for the ${details.title} position! Check your email for updates on your application.`)
         setName('');
         setPhoneNumber('');
         setAddress('');
