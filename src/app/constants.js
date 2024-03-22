@@ -113,5 +113,5 @@ export const creditedSources = [
     https://www.indeed.com/career/customer-service-representative/salaries/Dallas--TX
     https://www.ziprecruiter.com/Salaries/BACK-END-Developer-Salary#Yearly
 
-    
+    Email change
 */
