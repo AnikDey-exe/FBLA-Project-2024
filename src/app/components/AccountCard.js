@@ -73,7 +73,7 @@ const AccountCard = ({ account }) => {
             height: 'fit-content',
             marginTop: isMobile ? 50 : 0
         }}>
-            <h3 style={{ alignSelf: "center", fontWeight: '600' }}>Account</h3>
+            <h5 style={{ alignSelf: "center", fontWeight: '600' }}>Account</h5>
             <Image
                 src={finalProfilePic}
                 width={50}

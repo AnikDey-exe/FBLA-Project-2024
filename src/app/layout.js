@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ImportBS from './importBS';
 
-import { Inter, Poppins } from 'next/font/google'
+import { Inter, Poppins, Merriweather, Prata } from 'next/font/google'
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -21,6 +21,14 @@ const poppins = Poppins({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 })
+const merriweather = Merriweather({
+  subsets: ['latin'],
+  weight: ['300', '400', '700', '900']
+})
+const prata = Prata({
+  subsets: ['latin'],
+  weight: ['400']
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -37,7 +45,7 @@ export default function RootLayout({ children }) {
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
         />
       </Head> */}
-      <body className={poppins.className}>
+      <body className={merriweather.className}>
         <UserContext>
           <ImportBS />
           <Navbar />

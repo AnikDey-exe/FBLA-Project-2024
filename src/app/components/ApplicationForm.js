@@ -123,7 +123,7 @@ const ApplicationForm = ({ details }) => {
 
     return (
         <div style={{ padding: 50, width: "100%" }}>
-            <h2>Apply</h2>
+            <h2 style={{fontWeight: 400, marginBottom: 5}}>Apply</h2>
             <h3 style={{ display: "flex" }}>Position: <h3 style={{ fontWeight: 600, marginLeft: 10 }}>{details.title}</h3></h3>
             {/* <span>{resume}</span> */}
             <form onSubmit={handleSubmit}

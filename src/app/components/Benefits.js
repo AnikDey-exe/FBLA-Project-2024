@@ -42,7 +42,7 @@ const Benefits = () => {
                 gridAutoRows: '1fr',
                 justifyContent: 'center',
                 gap: 20,
-                marginTop: 20
+                marginTop: isMobile ? 20: 50
             }}>
                 {isMobile ?
                     benefits.map((benefit, i) => {
@@ -97,9 +97,14 @@ const Card = ({ title, description, imageSrc, index, isMobile }) => {
             style={{
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center',
+                // justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
+                boxShadow: "0px 0px 10px #ccc",
+                backgroundColor: "white",
+                padding: 0,
+                transition: "all 0.5s ease-out",
+                borderRadius: 5,
                 // borderWidth: 1,
                 // borderColor: 'black', 
                 // borderStyle: 'solid'
@@ -117,12 +122,18 @@ const Card = ({ title, description, imageSrc, index, isMobile }) => {
                 width={50}
                 height={50}
                 style={{
-                    width: '50%',
-                    aspectRatio: 1
+                    width: '100%',
+                    // aspectRatio: 1,
+                    objectFit: "cover",
+                    height: 200,
+                    borderTopLeftRadius: 5,
+                    borderTopRightRadius: 5
                 }}
                 unoptimized />
-            <h4 style={{ marginTop: 10 }}>{title}</h4>
-            <p style={{ marginTop: 10 }}>{description}</p>
+            <div style={{padding: 20, textAlign: "left"}}>
+                <h5 style={{ marginTop: 5, color: PRIMARY_COLOR, fontWeight: "bold" }}>{title}</h5>
+                <p style={{ marginTop: 10 }}>{description}</p>
+            </div>
         </motion.div>
     )
 }
@@ -136,6 +147,11 @@ const MobileCard = ({ title, description, imageSrc, index }) => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
+                boxShadow: "0px 0px 10px #ccc",
+                backgroundColor: "white",
+                padding: 0,
+                transition: "all 0.5s ease-out",
+                borderRadius: 5,
                 // borderWidth: 1,
                 // borderColor: 'black', 
                 // borderStyle: 'solid'
@@ -153,12 +169,18 @@ const MobileCard = ({ title, description, imageSrc, index }) => {
                 width={50}
                 height={50}
                 style={{
-                    width: '50%',
-                    aspectRatio: 1
+                    width: '100%',
+                    // aspectRatio: 1,
+                    objectFit: "cover",
+                    height: 200,
+                    borderTopLeftRadius: 5,
+                    borderTopRightRadius: 5
                 }}
                 unoptimized />
-            <h4 style={{ marginTop: 10 }}>{title}</h4>
-            <p style={{ marginTop: 10 }}>{description}</p>
+            <div style={{padding: 20, textAlign: "left"}}>
+                <h5 style={{ marginTop: 5, color: PRIMARY_COLOR, fontWeight: "bold" }}>{title}</h5>
+                <p style={{ marginTop: 10 }}>{description}</p>
+            </div>
         </motion.div>
     )
 }

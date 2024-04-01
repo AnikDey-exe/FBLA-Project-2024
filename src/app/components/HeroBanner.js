@@ -51,7 +51,7 @@ const HeroBanner = ({ title, backgroundImage, hasButton }) => {
                         opacity: 0
                     }}
                     transition={{ type: "spring", ease: "easeOut", duration: 1, stiffness: 50, delay: 0.75 }}>
-                    <h1 style={{ textAlign: "center" }}>{title}</h1>
+                    <h1 style={{ textAlign: "center", color: PRIMARY_COLOR }}>{title}</h1>
                     {hasButton &&
                         <Link href="/choose">
                             <Button style={{

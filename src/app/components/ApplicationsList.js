@@ -32,7 +32,7 @@ const ApplicationsList = ({ applications }) => {
                 flexDirection: "row",
                 justifyContent: "space-between"
             }}>
-                <h4 style={{ fontWeight: 500 }}>Submitted Applications</h4>
+                <h5 style={{ fontWeight: 500, fontSize: 30 }}>Submitted Applications</h5>
                 <Link href="/choose">
                     <Button style={{ backgroundColor: PRIMARY_COLOR, height: 30, borderRadius: 10, display: "flex", alignItems: "center" }}>
                         <span style={{ color: 'white', fontWeight: 600 }}>Apply</span>
@@ -130,7 +130,7 @@ const ApplicationCard = ({ positionTitle, positionId, fullName, address, phoneNu
                 rel="noopener noreferrer"
                 target="_blank"
                 style={{ color: PRIMARY_COLOR, textDecoration: 'underline', marginTop: 5 }}>
-                View Resume
+                <span>View Resume</span>
             </Link>
             <h6
                 style={{

@@ -1,20 +1,20 @@
 export const COMPANY_NAME = "ExpressEats"
-export const PRIMARY_COLOR = "#00bd9d"
+export const PRIMARY_COLOR = "#51a691"
 export const benefits = [
     {
         title: 'Unlimited PTO',
         description: "Enjoy your vacation with zero hassle and don't worry about getting sick. You will be paid on your time off.",
-        image: 'sleep.png'
+        image: 'vacationb.jpg'
     },
     {
         title: 'Medical Insurance',
         description: "We will cover your medical costs and emergencies.",
-        image: 'disability-insurance.png'
+        image: 'insuranceb.jpg'
     },
     {
         title: '401K',
         description: "Live a stress free retirement and live in luxury.",
-        image: 'retirement.png'
+        image: 'retirementb.jpg'
     }
 ]
 
@@ -103,6 +103,9 @@ export const creditedSources = [
     Company benefits
     Salaries for positions listed on website
 
+    Documentation: 
+    <a href="https://www.freepik.com/free-photo/paper-bag-with-vegetables_889655.htm#query=grocery%20bag%20png&position=5&from_view=keyword&track=ais&uuid=e6800ee9-7bf5-4c15-bba0-18a0dac6cf29">Image by onlyyouqj</a> on Freepik
+
     Sources:
     https://resources.workable.com/tutorial/employee-benefits-guide 
     https://www.forbes.com/advisor/business/employee-benefits/  
@@ -113,5 +116,5 @@ export const creditedSources = [
     https://www.indeed.com/career/customer-service-representative/salaries/Dallas--TX
     https://www.ziprecruiter.com/Salaries/BACK-END-Developer-Salary#Yearly
 
-    Email change
+    Email api route (not in use): 
 */

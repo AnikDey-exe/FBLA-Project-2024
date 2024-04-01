@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { COMPANY_NAME } from "../constants";
 import Image from "next/image";
 import { useMediaQuery } from "../hooks/useMediaQuery";
+import { PRIMARY_COLOR } from "../constants";
 
 const About = () => {
     const isMobile = useMediaQuery("(max-width: 700px)");
@@ -14,13 +15,14 @@ const About = () => {
                 display: 'flex',
                 flexDirection: isMobile ? 'column' : 'row',
                 justifyContent: isMobile ? 'center' : 'space-between',
-                alignItems: isMobile ? 'center' : null
+                alignItems: isMobile ? 'center' : null,
             }}>
             <div style={{
-                width: isMobile ? '100%' : '50%',
+                width: isMobile ? '100%' : '35%',
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center"
+                justifyContent: "center",
+                paddingLeft: isMobile ? 0 : 30
             }}>
                 <motion.h2
                     initial="hidden"
@@ -32,7 +34,8 @@ const About = () => {
                         hidden: { opacity: 0, scale: 0 }
                     }}
                     style={{
-                        textAlign: isMobile ? "center" : null
+                        textAlign: isMobile ? "center" : null,
+                        // fontWeight: 700
                     }}
                 >
                     About {COMPANY_NAME}
@@ -56,9 +59,11 @@ const About = () => {
             </div>
             <motion.div
                 style={{
-                    width: isMobile ? "75%" : "30%",
+                    width: isMobile ? "75%" : "50%",
                     display: "flex",
-                    justifyContent: "center"
+                    justifyContent: "center",
+                    position: 'relative',
+                    padding: isMobile ? 0 : 50
                 }}
                 initial="hidden"
                     whileInView="visible"
@@ -69,6 +74,37 @@ const About = () => {
                         hidden: { opacity: 0, scale: 0 }
                     }}
                     >
+                {/* might remove this */}
+                {!isMobile && <><div style={{
+                    backgroundColor: PRIMARY_COLOR, 
+                    width: 50, 
+                    height: 50, 
+                    borderRadius: 50, 
+                    position: "absolute", 
+                    zIndex: -1,
+                    bottom: 30,
+                    right: 120
+                }}>&nbsp;</div>
+                <div style={{
+                    backgroundColor: PRIMARY_COLOR, 
+                    width: 75, 
+                    height: 75, 
+                    borderRadius: 75, 
+                    position: "absolute", 
+                    zIndex: -1,
+                    top: 30,
+                    right: 80
+                }}>&nbsp;</div>
+                <div style={{
+                    backgroundColor: PRIMARY_COLOR, 
+                    width: 100, 
+                    height: 100, 
+                    borderRadius: 100, 
+                    position: "absolute", 
+                    zIndex: -1,
+                    top: 150,
+                    left: 10
+                }}>&nbsp;</div></>}
                 <Image
                     src={require('../../../public/about.jpg')}
                     width={50}
@@ -77,8 +113,9 @@ const About = () => {
                         width: isMobile ? "70%" : "100%",
                         aspectRatio: 1,
                         objectFit: 'cover',
-                        borderRadius: 500,
-                        marginTop: isMobile ? 30 : 0
+                        borderRadius: 0,
+                        marginTop: isMobile ? 30 : 0,
+                        borderRadius: isMobile ? 500 : 0
                     }}
                     unoptimized />
             </motion.div>

@@ -15,9 +15,9 @@ const Position = ({ details }) => {
     return (
         <div style={{ padding: 50 }}>
             <h1 style={{ fontSize: isMobile ? 45 : 50, lineHeight: 1, color: PRIMARY_COLOR }}>{details.title}</h1>
-            <h3 style={{ marginBottom: 10, marginTop: 5, fontWeight: 600 }}>{COMPANY_NAME}</h3>
-            <h3>{details.location}</h3>
-            <h3>${details.lowerPrice} - ${details.higherPrice} per year - {details.jobType}</h3>
+            {/* <h3 style={{ marginBottom: 10, marginTop: 5, fontWeight: 600 }}>{COMPANY_NAME}</h3> */}
+            <h5 style={{marginTop: 10}}>{details.location}</h5>
+            <h5 style={{marginTop: 5}}>${details.lowerPrice} - ${details.higherPrice} per year - {details.jobType}</h5>
 
             {currentUser != "" ?
                 <Link href={{
@@ -50,8 +50,8 @@ const Position = ({ details }) => {
                     </Button>
                 </Link>}
 
-            <h2 style={{ marginTop: 30, fontSize: isMobile ? 35 : 40 }}> Position Details </h2>
-            <h3 style={{ fontWeight: 700 }}>Job Description</h3>
+            <h2 style={{ marginTop: 30, fontSize: isMobile ? 35 : 40, fontWeight: 400 }}> Position Details </h2>
+            <h3 style={{ fontWeight: 700, marginTop: 20 }}>Job Description</h3>
             <p style={{ marginBottom: 20 }}>{details.description}</p>
 
             <hr style={{ color: 'grey' }} />

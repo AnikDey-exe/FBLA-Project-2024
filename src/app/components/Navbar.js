@@ -31,7 +31,7 @@ const Navbar = () => {
         // sets the navbar to always visible if the page is not the home page, benefits page, openings page, or choose opening page
         if(pathname !== "/" && pathname !== "/benefits" && pathname !== "/openings" && pathname !== "/choose") setNavbarOpacity(1)
         const handle = () => {
-            if (window.scrollY > 400 || window.scrollY < 75) { // checks if user has scrolled to the top or bottom parts of the webpage
+            if (window.scrollY > 600 || window.scrollY < 75) { // checks if user has scrolled to the top or bottom parts of the webpage
                 if (navbarOpacity == 0) {
                     setNavbarOpacity(1) // make navbar visible
                 }
@@ -54,7 +54,7 @@ const Navbar = () => {
         <>
             <div style={{
                 width: "100%",
-                backgroundColor: "#FFFBFA",
+                backgroundColor: "#fffef2",
                 height: 75,
                 display: "flex",
                 flexDirection: "row",
@@ -69,7 +69,7 @@ const Navbar = () => {
             }}>
                 <Link href="/">
                     <Image
-                        src={require('../../../public/icon.png')}
+                        src={require('../../../public/icon2.png')}
                         width={30}
                         height={30}
                         unoptimized />
@@ -97,7 +97,7 @@ const Navbar = () => {
                                     setAccountClicked(!accountClicked)
                                 }}>
                                     <AccountDrawer isVisible={accountClicked} onClose={()=>{setAccountClicked(false)}}/>
-                                    <span>My Account</span>
+                                    <span>Account</span>
                                 </Button>
                             }
                         </li>
@@ -224,7 +224,7 @@ const AccountDrawer = ({ isVisible, onClose }) => {
                 flexDirection: "column",
                 position: "absolute",
                 top: 55,
-                right: 22.5,
+                right: 10,
                 zIndex: 5,
                 padding: 5
             }}

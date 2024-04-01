@@ -52,7 +52,8 @@ export default function Profile() {
                     animate={{ y: 20 }}
                     transition={{ ease: "easeOut", duration: 0.75 }}
                     initial={{
-                        translateY: -20
+                        translateY: -20,
+                        fontWeight: 400
                     }}>
                     Your Profile
                 </motion.h2>
