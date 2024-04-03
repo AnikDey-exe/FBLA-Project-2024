@@ -4,9 +4,11 @@ import { useState, useContext } from "react";
 import Input from "./Input";
 import { PRIMARY_COLOR } from "../constants";
 import Button from "./Button";
+import Image from "next/image";
 import Link from "next/link";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import signIn from "../database/auth/signIn";
+import signInWithGoogle from "../database/auth/signInGoogle";
 import { User } from "../contexts/UserContext";
 import Warning from "./Warning";
 import { useRouter } from "next/navigation";
@@ -32,7 +34,7 @@ const SignupForm = () => {
             return
         }
         setAlert('')
-        
+
         // attempts to sign in user
         const { result, error } = await signIn(email, password);
 
@@ -54,7 +56,7 @@ const SignupForm = () => {
     }
 
     // if there is a currently logged in user then return a warning
-    if(currentUser != "") return <Warning message="You are already logged in, please log out to access this page."/>
+    if (currentUser != "") return <Warning message="You are already logged in, please log out to access this page." />
 
     return (
         <div style={{
@@ -66,7 +68,7 @@ const SignupForm = () => {
         }}>
             <h3 style={{ fontWeight: 'bold', fontSize: 20 }}> You are almost there! </h3>
             <h4 style={{ fontSize: 15, fontWeight: 400 }}> Sign in </h4>
-            <div style={{ width: isMobile ? "100%" : "40%", backgroundColor: 'white', padding: 20, marginTop: 20, borderRadius: 10 }}>
+            <div style={{ width: isMobile ? "100%" : "40%", backgroundColor: 'white' }}>
                 <form
                     style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
                     onSubmit={handleSubmit}>
@@ -107,6 +109,30 @@ const SignupForm = () => {
                     }} />
                 </form>
             </div>
+            <Button
+                style={{
+                    width: "fit-content",
+                    display: "flex",
+                    boxShadow: "0px 0px 10px #ccc",
+                    borderRadius: 5,
+                    marginTop: 15
+                }}
+                onPress={async () => {
+                    const { resultant, errors } = await signInWithGoogle();
+                    if (!errors) {
+                        localStorage.setItem("currentUserEmail", resultant.email)
+                        setCurrentUser(resultant.email)
+                    }
+                }}>
+                <Image
+                    src={require("../../../public/Google-Logo.png")}
+                    width={20}
+                    height={20}
+                    style={{
+                        marginRight: 10
+                    }} />
+                Sign in with Google
+            </Button>
             {alert && <h5 style={{ marginTop: 20, color: 'red' }}>{alert}</h5>}
             <Link href="/signup" style={{ marginTop: 20 }}>
                 <span style={{ color: PRIMARY_COLOR }}> Don&apos;t have an account? Sign up </span>
