@@ -37,7 +37,7 @@ const Footer = () => {
         <footer style={{
             width: "100%",
             height: "fit-content",
-            backgroundColor: PRIMARY_COLOR,
+            backgroundColor: "red",
             padding: 50,
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
