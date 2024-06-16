@@ -1,4 +1,4 @@
-const Dropdown = ({ value, onChange, options, style={} }) => {
+const Dropdown = ({ value, onChange, options, initialValue, style={} }) => {
     return (
         <select value={value} onChange={onChange}
             style={{
@@ -6,7 +6,7 @@ const Dropdown = ({ value, onChange, options, style={} }) => {
             }}>
             {options.map((item, i)=> {
                 return (
-                    <option value={item.name} key={i}>
+                    <option selected={item.displayValue === initialValue} key={i}>
                         {item.displayValue}
                     </option>
                 )

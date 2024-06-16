@@ -17,15 +17,19 @@ const HomeBanner = ({ title, image, hasButton }) => {
 
                 }}
                 initial={{
-                    backgroundColor: "#fffef2",
+                    // backgroundColor: "#fffef2",
                     display: "flex",
                     width: "100%",
-                    flexDirection: "row",
                     justifyContent: "space-around",
                     position: "relative",
-                    height: 600,
                     paddingLeft: 30,
                     paddingRight: 30
+                }}
+                style={{
+                    flexDirection: isMobile ? "column" : "row",
+                    height: isMobile ? "fit-content ": 600,
+                    paddingTop: isMobile ? 30 : 0,
+                    paddingBottom: isMobile ? 30 : 0
                 }}>
                 <motion.div animate={{
                     // y: isMobile ? 120 : 157.5,

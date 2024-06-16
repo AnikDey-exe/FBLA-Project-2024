@@ -14,7 +14,8 @@ const Warning = ({ message }) => {
                 style={{
                     width: isMobile ? "75%" : "20%",
                     aspectRatio: 1,
-                    marginBottom: 30
+                    marginBottom: 30,
+                    objectFit: isMobile ? "cover" : null
                 }}/>
             <h4 style={{textAlign: isMobile ? "center" : null}}>{message}</h4>
         </div>

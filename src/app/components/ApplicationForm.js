@@ -78,6 +78,27 @@ const ApplicationForm = ({ details }) => {
             return;
         }
 
+        let aiDecision = true;
+
+        // try {
+        //     const response = await fetch("http://127.0.0.1:5000/ats", {
+        //       method: "POST",
+        //       headers: {
+        //         "Content-Type": "application/json",
+        //       },
+        //       body: JSON.stringify({
+        //         "url": res[0],
+        //         "keywords": details.keywords
+        //       }),
+        //     });
+        
+        //     const result5 = await response.json();
+        //     aiDecision = result5.response;
+        // } catch (error5) {
+        //     setAlert("Something went wrong")
+        //     return;
+        // }
+
         let accountName = "";
 
         // gets the user account details
@@ -103,7 +124,8 @@ const ApplicationForm = ({ details }) => {
             applicantAddress: address,
             applicantExtraInformation: extra,
             applicantResume: res[0],
-            applicationStatus: 'Under Review'
+            applicationStatus: aiDecision ? 'Under Review' : 'Rejected',
+            approvedByATS: aiDecision
         })
 
         if (error4) {

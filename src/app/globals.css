@@ -95,6 +95,44 @@ textarea {
   font-family: "ColfaxAI", Helvetica, sans-serif;
 }
 
+table {
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+  width: 100%;
+}
+
+
+tr th {
+  font-size: 18px;
+  padding: 12px;
+  border: 1px solid #eeeeee;
+  text-align: left;
+  color: white;
+  background-color: #51a691;
+}
+
+tr td {
+  border: 1px solid #eeeeee;
+  text-align: left;
+}
+
+/* input {
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  width: 91%;
+  padding: 12px 12px;
+  font-family: 'Poppins', sans-serif;
+} */
+
+input:hover {
+  background-color: #fffaf3;
+}
+
+input:focus {
+  outline: 1px solid #ccc;
+  border: 1px solid #ccc;
+}
+
 input[type="file"]::file-selector-button {
   border-radius: 4px;
   padding: 0 16px;

@@ -54,7 +54,8 @@ const Navbar = () => {
         <>
             <div style={{
                 width: "100%",
-                backgroundColor: "#fffef2",
+                // backgroundColor: "#fffef2",
+                backgroundColor: "white",
                 height: 75,
                 display: "flex",
                 flexDirection: "row",

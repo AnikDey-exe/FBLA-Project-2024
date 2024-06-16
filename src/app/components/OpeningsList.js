@@ -93,8 +93,8 @@ const Opening = ({ title, description, lowerPrice, higherPrice, location, isMobi
             onMouseOver={(e) => e.currentTarget.style.scale = 1.1}
             onMouseLeave={(e) => e.currentTarget.style.scale = 1}>
             <h3 style={{ fontSize: 20, fontWeight: 700, color: PRIMARY_COLOR }}>{title}</h3>
-            <h4 style={{ fontSize: 17.5, fontWeight: 300, display: isMobile ? null : 'flex', alignItems: 'center', marginTop: 7.5 }}>${lowerPrice} - ${higherPrice} <h5 style={{ fontSize: 17.5, color: 'grey', marginLeft: isMobile ? 0 : 5 }}>{location}</h5></h4>
-            <p style={{marginTop: 7.5}}>{description}</p>
+            <h4 style={{ fontSize: 17.5, fontWeight: 300, display: isMobile ? null : 'flex', alignItems: 'center', marginTop: 7.5 }}>${lowerPrice} - ${higherPrice} <h5 style={{ fontSize: 17.5, color: 'grey', marginLeft: isMobile ? 0 : 5, marginTop: 2.5 }}>{location}</h5></h4>
+            {/* <p style={{marginTop: 7.5}}>{description}</p> */}
             <Link
                 href={{
                     pathname: 'details',

@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ImportBS from './importBS';
 
-import { Inter, Poppins, Merriweather, Prata } from 'next/font/google'
+import { Inter, Poppins, Merriweather, Prata, Manrope } from 'next/font/google'
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -22,13 +22,15 @@ const poppins = Poppins({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 })
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '800']
+})
+
 const merriweather = Merriweather({
   subsets: ['latin'],
   weight: ['300', '400', '700', '900']
-})
-const prata = Prata({
-  subsets: ['latin'],
-  weight: ['400']
 })
 
 export const metadata = {
@@ -44,7 +46,7 @@ export default function RootLayout({ children }) {
         <script async src="https://api.cronbot.ai/v1/widgets/app/app_9v76zrj2mbiw"/>
         <noscript>You need to <a href="https://www.chatbot.com/help/chat-widget/enable-javascript-in-your-browser/" rel="noopener nofollow">enable JavaScript</a> in order to use the AI chatbot tool powered by <a href="https://www.chatbot.com/" rel="noopener nofollow" target="_blank">ChatBot</a></noscript>
       </Head> */}
-      <body className={merriweather.className}>
+      <body className={manrope.className}>
         <UserContext>
           <ImportBS />
           <Navbar />

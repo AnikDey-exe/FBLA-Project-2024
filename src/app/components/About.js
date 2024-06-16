@@ -4,6 +4,8 @@ import { COMPANY_NAME } from "../constants";
 import Image from "next/image";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { PRIMARY_COLOR } from "../constants";
+import { PoppinsGlobal } from "../utils/font";
+
 
 const About = () => {
     const isMobile = useMediaQuery("(max-width: 700px)");
@@ -44,7 +46,7 @@ const About = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{ ease: "easeOut", duration: 0.75}}
+                    transition={{ ease: "easeOut", duration: 0.75 }}
                     variants={{
                         visible: { opacity: 1, scale: 1 },
                         hidden: { opacity: 0, scale: 0 }
@@ -66,45 +68,215 @@ const About = () => {
                     padding: isMobile ? 0 : 50
                 }}
                 initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ ease: "easeOut", duration: 0.75, type: "spring", stiffness: 50 }}
-                    variants={{
-                        visible: { opacity: 1, scale: 1 },
-                        hidden: { opacity: 0, scale: 0 }
-                    }}
-                    >
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ ease: "easeOut", duration: 0.75, type: "spring", stiffness: 50 }}
+                variants={{
+                    visible: { opacity: 1, scale: 1 },
+                    hidden: { opacity: 0, scale: 0 }
+                }}
+            >
                 {/* might remove this */}
                 {!isMobile && <><div style={{
-                    backgroundColor: PRIMARY_COLOR, 
-                    width: 50, 
-                    height: 50, 
-                    borderRadius: 50, 
-                    position: "absolute", 
+                    backgroundColor: PRIMARY_COLOR,
+                    width: 50,
+                    height: 50,
+                    borderRadius: 50,
+                    position: "absolute",
                     zIndex: -1,
                     bottom: 30,
                     right: 120
                 }}>&nbsp;</div>
+                    <div style={{
+                        backgroundColor: PRIMARY_COLOR,
+                        width: 75,
+                        height: 75,
+                        borderRadius: 75,
+                        position: "absolute",
+                        zIndex: -1,
+                        top: 30,
+                        right: 80
+                    }}>&nbsp;</div>
+                    <div style={{
+                        backgroundColor: PRIMARY_COLOR,
+                        width: 100,
+                        height: 100,
+                        borderRadius: 100,
+                        position: "absolute",
+                        zIndex: -1,
+                        top: 150,
+                        left: 10
+                    }}>&nbsp;</div></>}
+                {!isMobile && <>
                 <div style={{
-                    backgroundColor: PRIMARY_COLOR, 
-                    width: 75, 
-                    height: 75, 
-                    borderRadius: 75, 
-                    position: "absolute", 
-                    zIndex: -1,
-                    top: 30,
-                    right: 80
-                }}>&nbsp;</div>
+                    backgroundColor: "white",
+                    width: 175,
+                    height: "auto",
+                    position: "absolute",
+                    zIndex: 3,
+                    bottom: 0,
+                    left: 0,
+                    boxShadow: "0px 0px 10px grey",
+                    scale: 0.8
+                }}>
+                    <div style={{
+                        padding: 10
+                    }}>
+                        <h5 style={{ textTransform: "uppercase", fontSize: 10, color: PRIMARY_COLOR }}>{COMPANY_NAME}</h5>
+                        <div style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: 10,
+                            marginBottom: 10
+                        }}>
+                            <h5 style={{ fontSize: 10 }}> Subtotal </h5>
+                            <h5> $20 </h5>
+                        </div>
+                        <hr style={{ color: 'grey' }} />
+                        <div style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: 10,
+                            marginBottom: 10
+                        }}>
+                            <h5 style={{ fontSize: 10 }}> Service Fees </h5>
+                            <h5 style={{ fontSize: 15 }}> $1 </h5>
+                        </div>
+                        <div style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: 10,
+                        }}>
+                            <h5 style={{ fontSize: 10 }}> Delivery Fees </h5>
+                            <h5 style={{ fontSize: 15 }}> $2 </h5>
+                        </div>
+                        <div style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: 10,
+                            marginBottom: 10
+                        }}>
+                            <h5 style={{ fontSize: 10 }}> Tips </h5>
+                            <h5 style={{ fontSize: 15 }}> $2 </h5>
+                        </div>
+                        <hr style={{ color: 'grey' }} />
+                        <div style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: 10,
+                            marginBottom: 10
+                        }}>
+                            <h5 style={{ fontSize: 12.5, fontWeight: "700" }}> Total </h5>
+                            <h5> $25 </h5>
+                        </div>
+                    </div>
+                    <div style={{
+                        width: "100%", 
+                        padding: 10, 
+                        display: "flex", 
+                        justifyContent: "center", 
+                        alignItems: "center",
+                        backgroundColor: "#c7c1ab"
+                    }}>
+                        <h5 className={PoppinsGlobal.className} style={{
+                            fontSize: 10, 
+                            textTransform: "uppercase", 
+                            fontWeight: 400, 
+                            color: "white",
+                            letterSpacing: 1.2
+                        }}>Exclusive Discount</h5>
+                    </div>
+                </div>
+
                 <div style={{
-                    backgroundColor: PRIMARY_COLOR, 
-                    width: 100, 
-                    height: 100, 
-                    borderRadius: 100, 
-                    position: "absolute", 
-                    zIndex: -1,
-                    top: 150,
-                    left: 10
-                }}>&nbsp;</div></>}
+                    backgroundColor: "white",
+                    width: 175,
+                    height: "auto",
+                    position: "absolute",
+                    zIndex: 3,
+                    bottom: 0,
+                    right: 0,
+                    boxShadow: "0px 0px 10px grey",
+                    scale: 0.8
+                }}>
+                    <div style={{
+                        padding: 10
+                    }}>
+                        <h5 style={{ textTransform: "uppercase", fontSize: 10, color: "grey" }}>Other Companies</h5>
+                        <div style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: 10,
+                            marginBottom: 10
+                        }}>
+                            <h5 style={{ fontSize: 10 }}> Subtotal </h5>
+                            <h5> $25 </h5>
+                        </div>
+                        <hr style={{ color: 'grey' }} />
+                        <div style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: 10,
+                            marginBottom: 10
+                        }}>
+                            <h5 style={{ fontSize: 10 }}> Service Fees </h5>
+                            <h5 style={{ fontSize: 15 }}> $3 </h5>
+                        </div>
+                        <div style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: 10,
+                        }}>
+                            <h5 style={{ fontSize: 10 }}> Delivery Fees </h5>
+                            <h5 style={{ fontSize: 15 }}> $5 </h5>
+                        </div>
+                        <div style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: 10,
+                            marginBottom: 10
+                        }}>
+                            <h5 style={{ fontSize: 10 }}> Tips </h5>
+                            <h5 style={{ fontSize: 15 }}> $5 </h5>
+                        </div>
+                        <hr style={{ color: 'grey' }} />
+                        <div style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: 10,
+                            marginBottom: 10
+                        }}>
+                            <h5 style={{ fontSize: 12.5, fontWeight: "700" }}> Total </h5>
+                            <h5> $38 </h5>
+                        </div>
+                    </div>
+                    <div style={{
+                        width: "100%", 
+                        padding: 10, 
+                        display: "flex", 
+                        justifyContent: "center", 
+                        alignItems: "center",
+                        backgroundColor: "#deae00"
+                    }}>
+                        <h5 className={PoppinsGlobal.className} style={{
+                            fontSize: 10, 
+                            textTransform: "uppercase", 
+                            fontWeight: 400,
+                            letterSpacing: 1.2
+                        }}>Delivery Charges</h5>
+                    </div>
+                </div>
+                </>}
                 <Image
                     src={require('../../../public/about.jpg')}
                     width={50}
@@ -115,7 +287,7 @@ const About = () => {
                         objectFit: 'cover',
                         borderRadius: 0,
                         marginTop: isMobile ? 30 : 0,
-                        borderRadius: isMobile ? 500 : 0
+                        borderRadius: isMobile ? 500 : 10
                     }}
                     unoptimized />
             </motion.div>
